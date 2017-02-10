@@ -1,5 +1,5 @@
-k0 = 0.4189;
-E0 = 1;
+k0 = 0.4189
+E0 = 1
 
 [Mesh]
   file = '../meshes/waveguide.msh'
@@ -76,6 +76,7 @@ E0 = 1;
     boundary = exit
     order = first
     variable = Re_E_z
+    coupled_var = Im_E_z
   [../]
   #[./top_imag]
   #  type = DirichletBC

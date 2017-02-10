@@ -15,7 +15,7 @@ CoeffField::CoeffField(const InputParameters &parameters)
 {}
 
 Real CoeffField::computeQpResidual() {
-  return _coefficent[_qp] * Reaction::computeQpResidual();
+  return -_coefficent[_qp] * Reaction::computeQpResidual();
 }
 
 Real CoeffField::computeQpJacobian() {
