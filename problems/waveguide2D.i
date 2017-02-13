@@ -10,10 +10,10 @@ E0 = 1
     order = FIRST
     family = LAGRANGE
   [../]
-  #[./Im_E_z]
-  #  order = FIRST
-  #  family = LAGRANGE
-  #[../]
+  [./Im_E_z]
+    order = FIRST
+    family = LAGRANGE
+  [../]
 []
 
 [AuxVariables]
@@ -41,15 +41,15 @@ E0 = 1
     coefficient = ${k0}
     variable = Re_E_z
   [../]
-  #[./laplacian_imag]
-  #  type = Diffusion
-  #  variable = Im_E_z
-  #[../]
-  #[./linear_imag]
-  #  type = CoeffField
-  #  coefficient = ${k0}
-  #  variable = Im_E_z
-  #[../]
+  [./laplacian_imag]
+    type = Diffusion
+    variable = Im_E_z
+  [../]
+  [./linear_imag]
+    type = CoeffField
+    coefficient = ${k0}
+    variable = Im_E_z
+  [../]
 []
 
 [BCs]
@@ -69,49 +69,76 @@ E0 = 1
     type = PortBC
     boundary = port
     variable = Re_E_z
+    num_type = real
+    k = ${k0};
+    #coupled_var = Im_E_z
     incoming_wave_fxn = E_inc_real
   [../]
-  [./absorber_real]
+  #[./cavity_real]
+  #  type = NeumannBC
+  #  variable = Re_E_z
+  #  boundary = exit
+  #  value = 0
+  #[../]
+  [./absorber_real] # first order
     type = AbsorbingBC
     boundary = exit
-    order = first
     variable = Re_E_z
+    k = ${k0}
+    num_type = real
     coupled_var = Im_E_z
   [../]
-  #[./top_imag]
+  [./top_imag]
+    type = DirichletBC
+    variable = Im_E_z
+    boundary = top
+    value = 0
+  [../]
+  [./bottom_imag]
+    type = DirichletBC
+    boundary = bottom
+    variable = Im_E_z
+    value = 0
+  [../]
+  #[./one_port_imag]
   #  type = DirichletBC
-  #  variable = Im_E_z
-  #  boundary = top
-  #  value = 0
-  #[../]
-  #[./bottom_imag]
-  #  type = DirichletBC
-  #  boundary = bottom
-  #  variable = Im_E_z
-  #  value = 0
-  #[../]
-  #[./port_imag]
-  #  type = PortBC
   #  boundary = port
   #  variable = Im_E_z
-  #  incoming_wave_fxn = E_inc_real
+  #  value = 1;
   #[../]
-  #[./absorber_imag]
-  #  type = AbsorbingBC
-  #  boundary = exit
-  #  order = first
+  [./port_imag]
+    type = PortBC
+    boundary = port
+    variable = Im_E_z
+    num_type = imaginary
+    k = ${k0}
+    coupled_var = Re_E_z
+    incoming_wave_fxn = E_inc_imag
+  [../]
+  #[./cavity_imag]
+  #  type = NeumannBC
   #  variable = Im_E_z
+  #  boundary = exit
+  #  value = 0
   #[../]
+  [./absorber_imag] # first order
+    type = AbsorbingBC
+    boundary = exit
+    variable = Im_E_z
+    k = ${k0}
+    num_type = imaginary
+    coupled_var = Re_E_z
+  [../]
 []
 
 [Functions]
   [./E_inc_real]
     type = ParsedFunction
-    value = '-E0 * k0 * sin(pi * y / 10) * sin(k0 * x)'
+    value = '-${E0} * ${k0} * sin(pi * y / 10) * sin(${k0} * x)'
   [../]
   [./E_inc_imag]
     type = ParsedFunction
-    value = 'E0 * k0 * sin(pi * y / 10) * cos(k0 * x)'
+    value = '${E0} * ${k0} * sin(pi * y / 10) * cos(${k0} * x)'
   [../]
 []
 
