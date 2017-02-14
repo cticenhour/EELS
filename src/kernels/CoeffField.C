@@ -2,12 +2,11 @@
 
 template <> InputParameters validParams<CoeffField>() {
   InputParameters params = validParams<Reaction>();
-  params.addRequiredParam<Real>("coefficient",
-                                "Coefficient multiplier for field.");
+  params.addRequiredParam<Real>("coefficient", "Coefficient multiplier for field.");
   return params;
 }
 
-CoeffField::CoeffField(const InputParameters &parameters)
+CoeffField::CoeffField(const InputParameters & parameters)
     : Reaction(parameters),
 
       _coefficient(getParam<Real>("coefficient"))
@@ -15,9 +14,9 @@ CoeffField::CoeffField(const InputParameters &parameters)
 {}
 
 Real CoeffField::computeQpResidual() {
-  return -_coefficient * Reaction::computeQpResidual();
+  return -_coefficient * _coefficient * Reaction::computeQpResidual();
 }
 
 Real CoeffField::computeQpJacobian() {
-  return -_coefficient * Reaction::computeQpJacobian();
+  return -_coefficient * _coefficient * Reaction::computeQpJacobian();
 }

@@ -6,7 +6,8 @@
 // Forward declarations
 class AbsorbingBC;
 
-template <> InputParameters validParams<AbsorbingBC>();
+template<>
+InputParameters validParams<AbsorbingBC>();
 
 class AbsorbingBC : public IntegratedBC {
 public:
@@ -17,6 +18,10 @@ protected:
 
 private:
   Real _k;
+
+  Real _k_perp;
+
+  Real _coefficient;
 
   const VariableValue &_coupled_field_var_val;
 

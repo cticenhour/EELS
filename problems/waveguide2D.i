@@ -1,5 +1,6 @@
 k0 = 0.4189
 E0 = 1
+k_y = 0.3142
 
 [Mesh]
   file = '../meshes/waveguide.msh'
@@ -28,7 +29,15 @@ E0 = 1
     family = MONOMIAL
   [../]
   [./y_node]
-  [./]
+  [../]
+  [./E_mag]
+    order = FIRST
+    family = LAGRANGE
+  [../]
+  [./E_phase]
+    order = FIRST
+    family = LAGRANGE
+  [../]
 []
 
 [Kernels]
@@ -52,6 +61,21 @@ E0 = 1
   [../]
 []
 
+[AuxKernels]
+  [./magnitude]
+    type = FieldMagnitude
+    variable = E_mag
+    coupled_real = Re_E_z
+    coupled_imag = Im_E_z
+  [../]
+  [./phase]
+    type = WavePhase
+    variable = E_phase
+    coupled_real = Re_E_z
+    coupled_imag = Im_E_z
+  [../]
+[]
+
 [BCs]
   [./top_real]
     type = DirichletBC
@@ -71,20 +95,15 @@ E0 = 1
     variable = Re_E_z
     num_type = real
     k = ${k0};
-    #coupled_var = Im_E_z
+    coupled_var = Im_E_z
     incoming_wave_fxn = E_inc_real
   [../]
-  #[./cavity_real]
-  #  type = NeumannBC
-  #  variable = Re_E_z
-  #  boundary = exit
-  #  value = 0
-  #[../]
-  [./absorber_real] # first order
+  [./absorber_real] # second order if k_perp is provided, first otherwise
     type = AbsorbingBC
     boundary = exit
     variable = Re_E_z
     k = ${k0}
+    k_perp = ${k_y}
     num_type = real
     coupled_var = Im_E_z
   [../]
@@ -100,12 +119,6 @@ E0 = 1
     variable = Im_E_z
     value = 0
   [../]
-  #[./one_port_imag]
-  #  type = DirichletBC
-  #  boundary = port
-  #  variable = Im_E_z
-  #  value = 1;
-  #[../]
   [./port_imag]
     type = PortBC
     boundary = port
@@ -115,17 +128,12 @@ E0 = 1
     coupled_var = Re_E_z
     incoming_wave_fxn = E_inc_imag
   [../]
-  #[./cavity_imag]
-  #  type = NeumannBC
-  #  variable = Im_E_z
-  #  boundary = exit
-  #  value = 0
-  #[../]
-  [./absorber_imag] # first order
+  [./absorber_imag] # second order if k_perp is provided, first otherwise
     type = AbsorbingBC
     boundary = exit
     variable = Im_E_z
     k = ${k0}
+    k_perp = ${k_y}
     num_type = imaginary
     coupled_var = Re_E_z
   [../]
@@ -134,11 +142,11 @@ E0 = 1
 [Functions]
   [./E_inc_real]
     type = ParsedFunction
-    value = '-${E0} * ${k0} * sin(pi * y / 10) * sin(${k0} * x)'
+    value = '${E0} * sin(pi * y / 10) * cos(-${k0} * x)'
   [../]
   [./E_inc_imag]
     type = ParsedFunction
-    value = '${E0} * ${k0} * sin(pi * y / 10) * cos(${k0} * x)'
+    value = '${E0} * sin(pi * y / 10) * sin(-${k0} * x)'
   [../]
 []
 
