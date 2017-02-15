@@ -1,7 +1,7 @@
 #include "AppFactory.h"
 #include "EelsApp.h"
 #include "Moose.h"
-//#include "ModulesApp.h"
+#include "ModulesApp.h"
 #include "MooseSyntax.h"
 
 // Kernels
@@ -27,11 +27,11 @@ template <> InputParameters validParams<EelsApp>() {
 
 EelsApp::EelsApp(InputParameters parameters) : MooseApp(parameters) {
   Moose::registerObjects(_factory);
-  // ModulesApp::registerObjects(_factory);
+  ModulesApp::registerObjects(_factory);
   EelsApp::registerObjects(_factory);
 
   Moose::associateSyntax(_syntax, _action_factory);
-  // ModulesApp::associateSyntax(_syntax, _action_factory);
+  ModulesApp::associateSyntax(_syntax, _action_factory);
   EelsApp::associateSyntax(_syntax, _action_factory);
 }
 
