@@ -96,7 +96,7 @@ k_y = 0.3142
     num_type = real
     k = ${k0};
     coupled_var = Im_E_z
-    incoming_wave_fxn = E_inc_real
+    incoming_wave_fxn = E_inc_imag
   [../]
   [./absorber_real] # second order if k_perp is provided, first otherwise
     type = AbsorbingBC
@@ -126,7 +126,7 @@ k_y = 0.3142
     num_type = imaginary
     k = ${k0}
     coupled_var = Re_E_z
-    incoming_wave_fxn = E_inc_imag
+    incoming_wave_fxn = E_inc_real
   [../]
   [./absorber_imag] # second order if k_perp is provided, first otherwise
     type = AbsorbingBC
