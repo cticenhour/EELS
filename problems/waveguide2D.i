@@ -1,5 +1,6 @@
 k0 = 0.4189
 E0 = 1
+k_x = 0.2771
 k_y = 0.3142
 
 [Mesh]
@@ -94,16 +95,15 @@ k_y = 0.3142
     boundary = port
     variable = Re_E_z
     num_type = real
-    k = ${k0};
+    k = ${k_x};
     coupled_var = Im_E_z
     incoming_wave_fxn = E_inc_imag
   [../]
-  [./absorber_real] # second order if k_perp is provided, first otherwise
+  [./absorber_real]
     type = AbsorbingBC
     boundary = exit
     variable = Re_E_z
-    k = ${k0}
-    k_perp = ${k_y}
+    k = ${k_x}
     num_type = real
     coupled_var = Im_E_z
   [../]
@@ -124,16 +124,15 @@ k_y = 0.3142
     boundary = port
     variable = Im_E_z
     num_type = imaginary
-    k = ${k0}
+    k = ${k_x}
     coupled_var = Re_E_z
     incoming_wave_fxn = E_inc_real
   [../]
-  [./absorber_imag] # second order if k_perp is provided, first otherwise
+  [./absorber_imag]
     type = AbsorbingBC
     boundary = exit
     variable = Im_E_z
-    k = ${k0}
-    k_perp = ${k_y}
+    k = ${k_x}
     num_type = imaginary
     coupled_var = Re_E_z
   [../]
@@ -142,11 +141,11 @@ k_y = 0.3142
 [Functions]
   [./E_inc_real]
     type = ParsedFunction
-    value = '${E0} * sin(pi * y / 10) * cos(-${k0} * x)'
+    value = '${E0} * sin(pi * y / 10)'
   [../]
   [./E_inc_imag]
     type = ParsedFunction
-    value = '${E0} * sin(pi * y / 10) * sin(-${k0} * x)'
+    value = '0'
   [../]
 []
 

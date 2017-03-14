@@ -32,5 +32,5 @@ PortBC::PortBC(const InputParameters & parameters) :
 
 Real PortBC::computeQpResidual() {
 
-  return _sign * 2 * _k * _field_inc.value(_t, _q_point[_qp]) - _sign * _k * _coupled_var_val[_qp];
+  return _sign * _k * _field_inc.value(_t, _q_point[_qp]) - _sign * _k * _coupled_var_val[_qp];
 }
