@@ -15,7 +15,7 @@ AbsorbingBC::AbsorbingBC(const InputParameters & parameters) :
       IntegratedBC(parameters),
 
       _k(getParam<Real>("k")),
-      _coupled_field_var_val(coupledValue("coupled_var")),
+      _coupled_val(coupledValue("coupled_var")),
       _num_type(getParam<std::string>("num_type"))
 
 {
@@ -27,5 +27,5 @@ AbsorbingBC::AbsorbingBC(const InputParameters & parameters) :
 }
 
 Real AbsorbingBC::computeQpResidual() {
-  return -_sign * _k * _coupled_field_var_val[_qp];
+  return -_test[_i][_qp] * _sign * _k * _coupled_val[_qp];
 }

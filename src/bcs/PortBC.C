@@ -16,7 +16,7 @@ PortBC::PortBC(const InputParameters & parameters) :
       IntegratedBC(parameters),
 
       _field_inc(getFunction("incoming_wave_fxn")),
-      _coupled_var_val(coupledValue("coupled_var")),
+      _coupled_val(coupledValue("coupled_var")),
 
       _k(getParam<Real>("k")),
 
@@ -24,13 +24,14 @@ PortBC::PortBC(const InputParameters & parameters) :
 
 {
   if (_num_type.compare("real") == 0) {
-    _sign = 1.;
-  } else if (_num_type.compare("imaginary") == 0) {
     _sign = -1.;
+  } else if (_num_type.compare("imaginary") == 0) {
+    _sign = 1.;
   }
 }
 
 Real PortBC::computeQpResidual() {
 
-  return _sign * _k * _field_inc.value(_t, _q_point[_qp]) - _sign * _k * _coupled_var_val[_qp];
+  return _test[_i][_qp] * _sign * _k * _coupled_val[_qp] - 2 * _test[_i][_qp] * _sign * _k * _field_inc.value(_t,_q_point[_qp]);
+
 }

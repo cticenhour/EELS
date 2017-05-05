@@ -6,20 +6,22 @@
 // Forward declarations
 class PortBC;
 
-template <> InputParameters validParams<PortBC>();
+template <>
+InputParameters validParams<PortBC>();
 
-class PortBC : public IntegratedBC {
+class PortBC : public IntegratedBC
+{
 public:
-  PortBC(const InputParameters &parameters);
+  PortBC(const InputParameters & parameters);
 
 protected:
   virtual Real computeQpResidual() override;
 
 private:
   // The function being used as the incoming wave
-  Function &_field_inc;
+  Function & _field_inc;
 
-  const VariableValue &_coupled_var_val;
+  const VariableValue & _coupled_val;
 
   // Wave number of forward-moving function
   Real _k; // Later, this needs to be a material property

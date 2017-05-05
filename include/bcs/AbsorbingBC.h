@@ -6,12 +6,13 @@
 // Forward declarations
 class AbsorbingBC;
 
-template<>
+template <>
 InputParameters validParams<AbsorbingBC>();
 
-class AbsorbingBC : public IntegratedBC {
+class AbsorbingBC : public IntegratedBC
+{
 public:
-  AbsorbingBC(const InputParameters &parameters);
+  AbsorbingBC(const InputParameters & parameters);
 
 protected:
   virtual Real computeQpResidual() override;
@@ -19,7 +20,7 @@ protected:
 private:
   Real _k;
 
-  const VariableValue &_coupled_field_var_val;
+  const VariableValue & _coupled_val;
 
   Real _sign;
 
