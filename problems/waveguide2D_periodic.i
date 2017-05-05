@@ -140,27 +140,27 @@ k_y = 0.3142
 []
 
 #[Preconditioning]
-#  [./some_smp]
-#    type = SMP
+#  [./fdp]
+#    type = FDP
 #    full = true
 #  [../]
 #[]
 
 [Executioner]
   type = Steady
-  solve_type = 'PJFNK'
-  #petsc_options_iname = '-pc_type'
-  #petsc_options_value = 'lu'
-  #line_search = none
+  solve_type =  'PJFNK'
+  petsc_options_iname = '-pc_type'
+  petsc_options_value = 'lu'
 []
 
+
 [Debug]
-  show_var_residual_norms = true
+  show_var_residual_norms = false
 []
 
 [Outputs]
   print_perf_log = true
-  print_linear_residuals = false
+  print_linear_residuals = true
   [./out]
     type = Exodus
   [../]
