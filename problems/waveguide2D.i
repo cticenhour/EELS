@@ -150,17 +150,19 @@ k_y = 0.3142
 []
 
 #[Preconditioning]
-#  [./fdp]
-#    type = FDP
+#  [./SMP]
+#    type = SMP
 #    full = true
 #  [../]
 #[]
 
 [Executioner]
   type = Steady
-  solve_type =  'PJFNK'
-  petsc_options_iname = '-pc_type'
-  petsc_options_value = 'lu'
+  solve_type =  'NEWTON'
+  petsc_options_iname = '-pc_type -ksp_type'
+  petsc_options_value = 'lu none'
+  nl_rel_tol = 1e-7
+  nl_max_its = 400
 []
 
 [Debug]
