@@ -4,7 +4,7 @@ k_x = 0.2771
 k_y = 0.3142
 
 [Mesh]
-  file = '../meshes/waveguide.msh'
+  file = '../meshes/waveguide_2408.msh'
 []
 
 [Variables]
@@ -149,18 +149,21 @@ k_y = 0.3142
   [../]
 []
 
-#[Preconditioning]
-#  [./SMP]
-#    type = SMP
-#    full = true
-#  [../]
-#[]
+[Preconditioning]
+  [./SMP]
+    type = SMP
+    full = true
+    #ksp_norm = none     # required if ksp_type=preonly
+  [../]
+[]
 
 [Executioner]
   type = Steady
-  solve_type =  'NEWTON'
-  petsc_options_iname = '-pc_type -ksp_type'
-  petsc_options_value = 'lu none'
+  solve_type =  'PJFNK'
+  petsc_options_iname = '-pc_type'
+  petsc_options_value = 'lu'
+  #petsc_options_iname = '-pc_type -ksp_type'
+  #petsc_options_value = 'lu preonly'
   nl_rel_tol = 1e-7
   nl_max_its = 400
 []
