@@ -7,6 +7,7 @@
 // Kernels
 #include "CoeffField.h"
 #include "CoeffDiffusion.h"
+#include "GradDiv.h"
 
 // AuxKernels
 #include "FieldMagnitude.h"
@@ -49,6 +50,7 @@ extern "C" void EelsApp__registerObjects(Factory &factory) {
 void EelsApp::registerObjects(Factory &factory) {
   registerKernel(CoeffField);
   registerKernel(CoeffDiffusion);
+  registerKernel(GradDiv);
   registerAuxKernel(FieldMagnitude);
   registerAuxKernel(WavePhase);
   registerBoundaryCondition(PortBC);
