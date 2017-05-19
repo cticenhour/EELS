@@ -16,9 +16,9 @@ GradDiv::GradDiv(const InputParameters & parameters)
   : Kernel(parameters),
 
     _dim(getParam<Real>("dimension")),
-    _field_0_grad(coupledGradient("coupled_0")),
-    _field_1_grad(coupledGradient("coupled_1")),
-    _field_2_grad(coupledGradient("coupled_2")),
+    _field_0_grad(coupledGradient("Field_0")),
+    _field_1_grad(coupledGradient("Field_1")),
+    _field_2_grad(coupledGradient("Field_2"))
 {
 }
 
@@ -37,6 +37,10 @@ GradDiv::computeQpResidual()
   {
     return -_grad_test[_i][_qp](_dim) * (_field_0_grad[_qp](0) + _field_1_grad[_qp](1) + _grad_u[_qp](2));
   }
+  else
+  {
+    return 0;
+  }
 }
 
 Real
@@ -54,5 +58,9 @@ GradDiv::computeQpJacobian()
   else if (_dim == 2)
   {
     return -_grad_test[_i][_qp](_dim) * (_field_0_grad[_qp](0) + _field_1_grad[_qp](1) + _grad_test[_j][_qp](2));
+  }
+  else
+  {
+    return 0;
   }
 }
