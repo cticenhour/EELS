@@ -153,7 +153,7 @@ k_y = 0.3142
     boundary = port
     variable = Re_E_y
     num_type = real
-    k = ${k_y};
+    k = ${k_z};
     coupled_var = Im_E_y
     incoming_wave_fxn = E_inc_imag_y
   [../]
@@ -161,7 +161,7 @@ k_y = 0.3142
     type = AbsorbingBC
     boundary = exit
     variable = Re_E_y
-    k = ${k_y}
+    k = ${k_z}
     num_type = real
     coupled_var = Im_E_y
   [../]

@@ -1,6 +1,6 @@
 length = 80;
 width = 10;
-height = 5;
+height = 20;
 
 //Elementary Entities
 
