@@ -50,7 +50,11 @@ Volume(1) = {1};
 
 // Physical Entities
 
-Physical Surface("walls") = {1, 3, 2, 4};
+//Physical Surface("walls") = {1, 3, 2, 4};
+Physical Surface("top") = {2};
+Physical Surface("bottom") = {1};
+Physical Surface("left") = {4};
+Physical Surface("right") = {3};
 Physical Surface("port") = {5};
 Physical Surface("exit") = {6};
 

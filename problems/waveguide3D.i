@@ -194,7 +194,7 @@ beta = 0.2282
     num_type = real
     k = ${k_z};
     coupled_var = Im_E_x
-    incoming_wave_fxn = E_inc_imag_z
+    incoming_wave_fxn = E_inc_imag_x
   [../]
   [./absorber_real_x]
     type = AbsorbingBC
@@ -203,6 +203,18 @@ beta = 0.2282
     k = ${k_z}
     num_type = real
     coupled_var = Im_E_x
+  [../]
+  [./top_real_x]
+    type = DirichletBC
+    boundary = left
+    variable = Re_E_x
+    value = 0
+  [../]
+  [./bottom_real_x]
+    type = DirichletBC
+    boundary = right
+    variable = Re_E_x
+    value = 0
   [../]
   [./port_imag_x]
     type = PortBC
@@ -220,6 +232,18 @@ beta = 0.2282
     k = ${k_z}
     num_type = imaginary
     coupled_var = Re_E_x
+  [../]
+  [./top_imag_x]
+    type = DirichletBC
+    boundary = left
+    variable = Im_E_x
+    value = 0
+  [../]
+  [./bottom_imag_x]
+    type = DirichletBC
+    boundary = right
+    variable = Im_E_x
+    value = 0
   [../]
   [./port_real_y]
     type = PortBC
@@ -255,10 +279,34 @@ beta = 0.2282
     num_type = imaginary
     coupled_var = Re_E_y
   [../]
-  [./walls_real_z]
+  #[./walls_real_z]
+  #  type = DirichletBC
+  #  variable = Re_E_z
+  #  boundary = walls
+  #  value = 0
+  #[../]
+  [./top_real_z]
     type = DirichletBC
     variable = Re_E_z
-    boundary = walls
+    boundary = top
+    value = 0
+  [../]
+  [./bottom_real_z]
+    type = DirichletBC
+    variable = Re_E_z
+    boundary = bottom
+    value = 0
+  [../]
+  [./left_real_z]
+    type = DirichletBC
+    variable = Re_E_z
+    boundary = left
+    value = 0
+  [../]
+  [./right_real_z]
+    type = DirichletBC
+    variable = Re_E_z
+    boundary = right
     value = 0
   [../]
   [./port_real_z]
@@ -278,10 +326,34 @@ beta = 0.2282
     num_type = real
     coupled_var = Im_E_z
   [../]
-  [./walls_imag_z]
+  #[./walls_imag_z]
+  #  type = DirichletBC
+  #  variable = Im_E_z
+  #  boundary = walls
+  #  value = 0
+  #[../]
+  [./top_imag_z]
     type = DirichletBC
     variable = Im_E_z
-    boundary = walls
+    boundary = top
+    value = 0
+  [../]
+  [./bottom_imag_z]
+    type = DirichletBC
+    variable = Im_E_z
+    boundary = bottom
+    value = 0
+  [../]
+  [./left_imag_z]
+    type = DirichletBC
+    variable = Im_E_z
+    boundary = left
+    value = 0
+  [../]
+  [./right_imag_z]
+    type = DirichletBC
+    variable = Im_E_z
+    boundary = right
     value = 0
   [../]
   [./port_imag_z]
@@ -340,8 +412,8 @@ beta = 0.2282
 [Executioner]
   type = Steady
   solve_type =  'PJFNK'
-  petsc_options_iname = '-pc_type -ksp_type'
-  petsc_options_value = 'lu none'
+  petsc_options_iname = '-pc_type'
+  petsc_options_value = 'lu'
   nl_rel_tol = 1e-7
   nl_max_its = 400
 []

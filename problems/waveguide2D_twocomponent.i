@@ -283,8 +283,8 @@ k_y = 0.3142
 [Executioner]
   type = Steady
   solve_type =  'PJFNK'
-  petsc_options_iname = '-pc_type -ksp_type'
-  petsc_options_value = 'lu none'
+  petsc_options_iname = '-pc_type'
+  petsc_options_value = 'lu'
   nl_rel_tol = 1e-7
   nl_max_its = 400
 []
