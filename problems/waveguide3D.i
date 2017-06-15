@@ -204,13 +204,13 @@ beta = 0.2282
     num_type = real
     coupled_var = Im_E_x
   [../]
-  [./top_real_x]
+  [./left_real_x]
     type = DirichletBC
     boundary = left
     variable = Re_E_x
     value = 0
   [../]
-  [./bottom_real_x]
+  [./right_real_x]
     type = DirichletBC
     boundary = right
     variable = Re_E_x
