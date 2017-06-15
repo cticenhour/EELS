@@ -2,7 +2,7 @@ k0 = 0.4189
 E0 = 1
 k_x = 0.1571
 k_y = 0.3142
-k_z = 0.2771
+k_z = 0.2282
 h_squared = 0.1234
 beta = 0.2282
 
@@ -235,13 +235,13 @@ beta = 0.2282
   [../]
   [./top_imag_x]
     type = DirichletBC
-    boundary = left
+    boundary = top
     variable = Im_E_x
     value = 0
   [../]
   [./bottom_imag_x]
     type = DirichletBC
-    boundary = right
+    boundary = bottom
     variable = Im_E_x
     value = 0
   [../]

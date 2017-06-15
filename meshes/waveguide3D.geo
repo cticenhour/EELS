@@ -1,24 +1,25 @@
-length = 80;
-width = 10;
-height = 20;
+L = 10;
+W = 20;
+H = 80;
 
 //Elementary Entities
+  // points at port (right handed coordinate system)
+Point(1) = {0, 0, 0};
+Point(2) = {0, L, 0};
+Point(3) = {W, L, 0};
+Point(4) = {W, 0, 0};
+  //points at exit
+Point(5) = {0, 0, H};
+Point(6) = {0, L, H};
+Point(7) = {W, L, H};
+Point(8) = {W, 0, H};
 
-Point(1) = {0, width, 0};
-Point(2) = {0, width, length};
-Point(3) = {0, 0, length};
-Point(4) = {0, 0, 0};
-Point(5) = {height, width, 0};
-Point(6) = {height, width, length};
-Point(7) = {height, 0, length};
-Point(8) = {height, 0, 0};
-
-// Bottom
+// Bottom (port)
 Line(1) = {1, 2};
 Line(2) = {2, 3};
 Line(3) = {3, 4};
 Line(4) = {4, 1};
-// Top
+// Top (exit)
 Line(5) = {5, 6};
 Line(6) = {6, 7};
 Line(7) = {7, 8};
@@ -36,13 +37,13 @@ Line Loop(4) = {-3, 11, 7, -12};
 Line Loop(5) = {4, 9, -8, -12};
 Line Loop(6) = {-2, 10, 6, -11};
 
-// NOTE: left/right directions are referenced facing the port, looking down the waveguide
-Plane Surface(1) = {1}; // bottom
-Plane Surface(2) = {2}; // top
-Plane Surface(3) = {3}; // right
-Plane Surface(4) = {4}; // left
-Plane Surface(5) = {5}; // port
-Plane Surface(6) = {6}; // exit
+// NOTE: labels are referenced facing the port, looking "down" the waveguide (in pos. Z direction, pos. X axis pointing up, pos. Y axis pointing right)
+Plane Surface(1) = {1}; // port
+Plane Surface(2) = {2}; // exit
+Plane Surface(3) = {3}; // bottom
+Plane Surface(4) = {4}; // top
+Plane Surface(5) = {5}; // left
+Plane Surface(6) = {6}; // right
 
 Surface Loop(1) = {1, 2, 3, 4, 5, 6};
 
@@ -50,12 +51,12 @@ Volume(1) = {1};
 
 // Physical Entities
 
-//Physical Surface("walls") = {1, 3, 2, 4};
-Physical Surface("top") = {2};
-Physical Surface("bottom") = {1};
-Physical Surface("left") = {4};
-Physical Surface("right") = {3};
-Physical Surface("port") = {5};
-Physical Surface("exit") = {6};
+//Physical Surface("walls") = {3, 4, 5, 6};
+Physical Surface("top") = {4};
+Physical Surface("bottom") = {3};
+Physical Surface("left") = {5};
+Physical Surface("right") = {6};
+Physical Surface("port") = {1};
+Physical Surface("exit") = {2};
 
 Physical Volume(1) = {1};
