@@ -37,13 +37,13 @@ Line Loop(4) = {-3, 11, 7, -12};
 Line Loop(5) = {4, 9, -8, -12};
 Line Loop(6) = {-2, 10, 6, -11};
 
-// NOTE: labels are referenced facing the port, looking "down" the waveguide (in pos. Z direction, pos. X axis pointing up, pos. Y axis pointing right)
+// NOTE: labels are referenced facing the port, looking "down" the waveguide (in pos. Z direction, pos. X axis pointing left, pos. Y axis pointing up)
 Plane Surface(1) = {1}; // port
 Plane Surface(2) = {2}; // exit
-Plane Surface(3) = {3}; // bottom
-Plane Surface(4) = {4}; // top
-Plane Surface(5) = {5}; // left
-Plane Surface(6) = {6}; // right
+Plane Surface(3) = {3}; // right
+Plane Surface(4) = {4}; // left
+Plane Surface(5) = {5}; // bottom
+Plane Surface(6) = {6}; // top
 
 Surface Loop(1) = {1, 2, 3, 4, 5, 6};
 
@@ -52,10 +52,10 @@ Volume(1) = {1};
 // Physical Entities
 
 //Physical Surface("walls") = {3, 4, 5, 6};
-Physical Surface("top") = {4};
-Physical Surface("bottom") = {3};
-Physical Surface("left") = {5};
-Physical Surface("right") = {6};
+Physical Surface("top") = {6};
+Physical Surface("bottom") = {5};
+Physical Surface("left") = {4};
+Physical Surface("right") = {3};
 Physical Surface("port") = {1};
 Physical Surface("exit") = {2};
 

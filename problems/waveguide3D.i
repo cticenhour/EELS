@@ -67,14 +67,14 @@ beta = 0.2282
 []
 
 [Kernels]
-  #[./graddiv_real_x]
-  #  type = GradDiv
-  #  dimension = 0
-  #  Field_0 = Re_E_x
-  #  Field_1 = Re_E_y
-  #  Field_2 = Re_E_z
-  #  variable = Re_E_x
-  #[../]
+  [./graddiv_real_x]
+    type = GradDiv
+    dimension = 0
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    variable = Re_E_x
+  [../]
   [./laplacian_real_x]
     type = Diffusion
     variable = Re_E_x
@@ -84,14 +84,14 @@ beta = 0.2282
     coefficient = ${k0}
     variable = Re_E_x
   [../]
-  #[./graddiv_imag_x]
-  #  type = GradDiv
-  #  dimension = 0
-  #  Field_0 = Im_E_x
-  #  Field_1 = Im_E_y
-  #  Field_2 = Im_E_z
-  #  variable = Im_E_y
-  #[../]
+  [./graddiv_imag_x]
+    type = GradDiv
+    dimension = 0
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    variable = Im_E_y
+  [../]
   [./laplacian_imag_x]
     type = Diffusion
     variable = Im_E_x
@@ -101,14 +101,14 @@ beta = 0.2282
     coefficient = ${k0}
     variable = Im_E_x
   [../]
-  #[./graddiv_real_y]
-  #  type = GradDiv
-  #  dimension = 1
-  #  Field_0 = 0
-  #  Field_1 = Re_E_y
-  #  Field_2 = Re_E_z
-  #  variable = Re_E_y
-  #[../]
+  [./graddiv_real_y]
+    type = GradDiv
+    dimension = 1
+    Field_0 = 0
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    variable = Re_E_y
+  [../]
   [./laplacian_real_y]
     type = Diffusion
     variable = Re_E_y
@@ -118,14 +118,14 @@ beta = 0.2282
     coefficient = ${k0}
     variable = Re_E_y
   [../]
-  #[./graddiv_imag_y]
-  #  type = GradDiv
-  #  dimension = 1
-  #  Field_0 = 0
-  #  Field_1 = Im_E_y
-  #  Field_2 = Im_E_z
-  #  variable = Im_E_y
-  #[../]
+  [./graddiv_imag_y]
+    type = GradDiv
+    dimension = 1
+    Field_0 = 0
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    variable = Im_E_y
+  [../]
   [./laplacian_imag_y]
     type = Diffusion
     variable = Im_E_y
@@ -135,14 +135,14 @@ beta = 0.2282
     coefficient = ${k0}
     variable = Im_E_y
   [../]
-  #[./graddiv_real_z]
-  #  type = GradDiv
-  #  dimension = 2
-  #  Field_0 = 0
-  #  Field_1 = Re_E_y
-  #  Field_2 = Re_E_z
-  #  variable = Re_E_z
-  #[../]
+  [./graddiv_real_z]
+    type = GradDiv
+    dimension = 2
+    Field_0 = 0
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    variable = Re_E_z
+  [../]
   [./laplacian_real_z]
     type = Diffusion
     variable = Re_E_z
@@ -152,14 +152,14 @@ beta = 0.2282
     coefficient = ${k0}
     variable = Re_E_z
   [../]
-  #[./graddiv_imag_z]
-  #  type = GradDiv
-  #  dimension = 2
-  #  Field_0 = 0
-  #  Field_1 = Im_E_y
-  #  Field_2 = Im_E_z
-  #  variable = Im_E_z
-  #[../]
+  [./graddiv_imag_z]
+    type = GradDiv
+    dimension = 2
+    Field_0 = 0
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    variable = Im_E_z
+  [../]
   [./laplacian_imag_z]
     type = Diffusion
     variable = Im_E_z
@@ -204,15 +204,15 @@ beta = 0.2282
     num_type = real
     coupled_var = Im_E_x
   [../]
-  [./left_real_x]
+  [./top_real_x]
     type = DirichletBC
-    boundary = left
+    boundary = top
     variable = Re_E_x
     value = 0
   [../]
-  [./right_real_x]
+  [./bottom_real_x]
     type = DirichletBC
-    boundary = right
+    boundary = bottom
     variable = Re_E_x
     value = 0
   [../]
@@ -262,6 +262,18 @@ beta = 0.2282
     num_type = real
     coupled_var = Im_E_y
   [../]
+  [./left_real_y]
+    type = DirichletBC
+    boundary = left
+    variable = Re_E_y
+    value = 0
+  [../]
+  [./right_real_y]
+    type = DirichletBC
+    boundary = right
+    variable = Re_E_y
+    value = 0
+  [../]
   [./port_imag_y]
     type = PortBC
     boundary = port
@@ -278,6 +290,18 @@ beta = 0.2282
     k = ${k_z}
     num_type = imaginary
     coupled_var = Re_E_y
+  [../]
+  [./left_imag_y]
+    type = DirichletBC
+    boundary = left
+    variable = Im_E_y
+    value = 0
+  [../]
+  [./right_imag_y]
+    type = DirichletBC
+    boundary = right
+    variable = Im_E_y
+    value = 0
   [../]
   #[./walls_real_z]
   #  type = DirichletBC
