@@ -67,14 +67,6 @@ beta = 0.2282
 []
 
 [Kernels]
-  #[./graddiv_real_x]
-  #  type = GradDiv
-  #  dimension = 0
-  #  Field_0 = Re_E_x
-  #  Field_1 = Re_E_y
-  #  Field_2 = Re_E_z
-  #  variable = Re_E_x
-  #[../]
   [./laplacian_real_x]
     type = Diffusion
     variable = Re_E_x
@@ -84,14 +76,6 @@ beta = 0.2282
     coefficient = ${k0}
     variable = Re_E_x
   [../]
-  #[./graddiv_imag_x]
-  #  type = GradDiv
-  #  dimension = 0
-  #  Field_0 = Im_E_x
-  #  Field_1 = Im_E_y
-  #  Field_2 = Im_E_z
-  #  variable = Im_E_y
-  #[../]
   [./laplacian_imag_x]
     type = Diffusion
     variable = Im_E_x
@@ -101,14 +85,6 @@ beta = 0.2282
     coefficient = ${k0}
     variable = Im_E_x
   [../]
-  #[./graddiv_real_y]
-  #  type = GradDiv
-  #  dimension = 1
-  #  Field_0 = 0
-  #  Field_1 = Re_E_y
-  #  Field_2 = Re_E_z
-  #  variable = Re_E_y
-  #[../]
   [./laplacian_real_y]
     type = Diffusion
     variable = Re_E_y
@@ -118,14 +94,6 @@ beta = 0.2282
     coefficient = ${k0}
     variable = Re_E_y
   [../]
-  #[./graddiv_imag_y]
-  #  type = GradDiv
-  #  dimension = 1
-  #  Field_0 = 0
-  #  Field_1 = Im_E_y
-  #  Field_2 = Im_E_z
-  #  variable = Im_E_y
-  #[../]
   [./laplacian_imag_y]
     type = Diffusion
     variable = Im_E_y
@@ -135,14 +103,6 @@ beta = 0.2282
     coefficient = ${k0}
     variable = Im_E_y
   [../]
-  #[./graddiv_real_z]
-  #  type = GradDiv
-  #  dimension = 2
-  #  Field_0 = 0
-  #  Field_1 = Re_E_y
-  #  Field_2 = Re_E_z
-  #  variable = Re_E_z
-  #[../]
   [./laplacian_real_z]
     type = Diffusion
     variable = Re_E_z
@@ -152,14 +112,6 @@ beta = 0.2282
     coefficient = ${k0}
     variable = Re_E_z
   [../]
-  #[./graddiv_imag_z]
-  #  type = GradDiv
-  #  dimension = 2
-  #  Field_0 = 0
-  #  Field_1 = Im_E_y
-  #  Field_2 = Im_E_z
-  #  variable = Im_E_z
-  #[../]
   [./laplacian_imag_z]
     type = Diffusion
     variable = Im_E_z
@@ -204,17 +156,14 @@ beta = 0.2282
     num_type = real
     coupled_var = Im_E_x
   [../]
-  [./top_real_x]
-    type = DirichletBC
-    boundary = top
+  [./PEC_real_x]
+    type = PEC
     variable = Re_E_x
-    value = 0
-  [../]
-  [./bottom_real_x]
-    type = DirichletBC
-    boundary = bottom
-    variable = Re_E_x
-    value = 0
+    direction = 0
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'left right top bottom'
   [../]
   [./port_imag_x]
     type = PortBC
@@ -233,17 +182,14 @@ beta = 0.2282
     num_type = imaginary
     coupled_var = Re_E_x
   [../]
-  [./top_imag_x]
-    type = DirichletBC
-    boundary = top
+  [./PEC_imag_x]
+    type = PEC
     variable = Im_E_x
-    value = 0
-  [../]
-  [./bottom_imag_x]
-    type = DirichletBC
-    boundary = bottom
-    variable = Im_E_x
-    value = 0
+    direction = 0
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'left right top bottom'
   [../]
   [./port_real_y]
     type = PortBC
@@ -262,17 +208,14 @@ beta = 0.2282
     num_type = real
     coupled_var = Im_E_y
   [../]
-  [./left_real_y]
-    type = DirichletBC
-    boundary = left
+  [./PEC_real_y]
+    type = PEC
     variable = Re_E_y
-    value = 0
-  [../]
-  [./right_real_y]
-    type = DirichletBC
-    boundary = right
-    variable = Re_E_y
-    value = 0
+    direction = 1
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'left right top bottom'
   [../]
   [./port_imag_y]
     type = PortBC
@@ -291,47 +234,14 @@ beta = 0.2282
     num_type = imaginary
     coupled_var = Re_E_y
   [../]
-  [./left_imag_y]
-    type = DirichletBC
-    boundary = left
+  [./PEC_imag_y]
+    type = PEC
     variable = Im_E_y
-    value = 0
-  [../]
-  [./right_imag_y]
-    type = DirichletBC
-    boundary = right
-    variable = Im_E_y
-    value = 0
-  [../]
-  #[./walls_real_z]
-  #  type = DirichletBC
-  #  variable = Re_E_z
-  #  boundary = walls
-  #  value = 0
-  #[../]
-  [./top_real_z]
-    type = DirichletBC
-    variable = Re_E_z
-    boundary = top
-    value = 0
-  [../]
-  [./bottom_real_z]
-    type = DirichletBC
-    variable = Re_E_z
-    boundary = bottom
-    value = 0
-  [../]
-  [./left_real_z]
-    type = DirichletBC
-    variable = Re_E_z
-    boundary = left
-    value = 0
-  [../]
-  [./right_real_z]
-    type = DirichletBC
-    variable = Re_E_z
-    boundary = right
-    value = 0
+    direction = 1
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'left right top bottom'
   [../]
   [./port_real_z]
     type = PortBC
@@ -350,35 +260,14 @@ beta = 0.2282
     num_type = real
     coupled_var = Im_E_z
   [../]
-  #[./walls_imag_z]
-  #  type = DirichletBC
-  #  variable = Im_E_z
-  #  boundary = walls
-  #  value = 0
-  #[../]
-  [./top_imag_z]
-    type = DirichletBC
-    variable = Im_E_z
-    boundary = top
-    value = 0
-  [../]
-  [./bottom_imag_z]
-    type = DirichletBC
-    variable = Im_E_z
-    boundary = bottom
-    value = 0
-  [../]
-  [./left_imag_z]
-    type = DirichletBC
-    variable = Im_E_z
-    boundary = left
-    value = 0
-  [../]
-  [./right_imag_z]
-    type = DirichletBC
-    variable = Im_E_z
-    boundary = right
-    value = 0
+  [./PEC_real_z]
+    type = PEC
+    variable = Re_E_z
+    direction = 2
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'left right top bottom'
   [../]
   [./port_imag_z]
     type = PortBC
@@ -396,6 +285,15 @@ beta = 0.2282
     k = ${k_z}
     num_type = imaginary
     coupled_var = Re_E_z
+  [../]
+  [./PEC_imag_z]
+    type = PEC
+    variable = Im_E_z
+    direction = 2
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'left right top bottom'
   [../]
 []
 
