@@ -156,14 +156,41 @@ beta = 0.2282
     num_type = real
     coupled_var = Im_E_x
   [../]
-  [./PEC_real_x]
+  [./PEC_real_x_left]
     type = PEC
     variable = Re_E_x
     direction = 0
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
-    boundary = 'left right top bottom'
+    boundary = 'left'
+  [../]
+  [./PEC_real_x_right]
+    type = PEC
+    variable = Re_E_x
+    direction = 0
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'right'
+  [../]
+  [./PEC_real_x_top]
+    type = PEC
+    variable = Re_E_x
+    direction = 0
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'top'
+  [../]
+  [./PEC_real_x_bottom]
+    type = PEC
+    variable = Re_E_x
+    direction = 0
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'bottom'
   [../]
   [./port_imag_x]
     type = PortBC
@@ -182,14 +209,41 @@ beta = 0.2282
     num_type = imaginary
     coupled_var = Re_E_x
   [../]
-  [./PEC_imag_x]
+  [./PEC_imag_x_left]
     type = PEC
     variable = Im_E_x
     direction = 0
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
-    boundary = 'left right top bottom'
+    boundary = 'left'
+  [../]
+  [./PEC_imag_x_right]
+    type = PEC
+    variable = Im_E_x
+    direction = 0
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'right'
+  [../]
+  [./PEC_imag_x_top]
+    type = PEC
+    variable = Im_E_x
+    direction = 0
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'top'
+  [../]
+  [./PEC_imag_x_bottom]
+    type = PEC
+    variable = Im_E_x
+    direction = 0
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'bottom'
   [../]
   [./port_real_y]
     type = PortBC
@@ -208,14 +262,41 @@ beta = 0.2282
     num_type = real
     coupled_var = Im_E_y
   [../]
-  [./PEC_real_y]
+  [./PEC_real_y_left]
     type = PEC
     variable = Re_E_y
     direction = 1
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
-    boundary = 'left right top bottom'
+    boundary = 'left'
+  [../]
+  [./PEC_real_y_right]
+    type = PEC
+    variable = Re_E_y
+    direction = 1
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'right'
+  [../]
+  [./PEC_real_y_top]
+    type = PEC
+    variable = Re_E_y
+    direction = 1
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'top'
+  [../]
+  [./PEC_real_y_bottom]
+    type = PEC
+    variable = Re_E_y
+    direction = 1
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'bottom'
   [../]
   [./port_imag_y]
     type = PortBC
@@ -234,14 +315,41 @@ beta = 0.2282
     num_type = imaginary
     coupled_var = Re_E_y
   [../]
-  [./PEC_imag_y]
+  [./PEC_imag_y_left]
     type = PEC
     variable = Im_E_y
     direction = 1
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
-    boundary = 'left right top bottom'
+    boundary = 'left'
+  [../]
+  [./PEC_imag_y_right]
+    type = PEC
+    variable = Im_E_y
+    direction = 1
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'right'
+  [../]
+  [./PEC_imag_y_top]
+    type = PEC
+    variable = Im_E_y
+    direction = 1
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'top'
+  [../]
+  [./PEC_imag_y_bottom]
+    type = PEC
+    variable = Im_E_y
+    direction = 1
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'bottom'
   [../]
   [./port_real_z]
     type = PortBC
@@ -260,14 +368,41 @@ beta = 0.2282
     num_type = real
     coupled_var = Im_E_z
   [../]
-  [./PEC_real_z]
+  [./PEC_real_z_left]
     type = PEC
     variable = Re_E_z
     direction = 2
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
-    boundary = 'left right top bottom'
+    boundary = 'left'
+  [../]
+  [./PEC_real_z_right]
+    type = PEC
+    variable = Re_E_z
+    direction = 2
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'right'
+  [../]
+  [./PEC_real_z_top]
+    type = PEC
+    variable = Re_E_z
+    direction = 2
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'top'
+  [../]
+  [./PEC_real_z_bottom]
+    type = PEC
+    variable = Re_E_z
+    direction = 2
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'bottom'
   [../]
   [./port_imag_z]
     type = PortBC
@@ -286,14 +421,41 @@ beta = 0.2282
     num_type = imaginary
     coupled_var = Re_E_z
   [../]
-  [./PEC_imag_z]
+  [./PEC_imag_z_left]
     type = PEC
     variable = Im_E_z
     direction = 2
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
-    boundary = 'left right top bottom'
+    boundary = 'left'
+  [../]
+  [./PEC_imag_z_right]
+    type = PEC
+    variable = Im_E_z
+    direction = 2
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'right'
+  [../]
+  [./PEC_imag_z_top]
+    type = PEC
+    variable = Im_E_z
+    direction = 2
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'top'
+  [../]
+  [./PEC_imag_z_bottom]
+    type = PEC
+    variable = Im_E_z
+    direction = 2
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'bottom'
   [../]
 []
 
