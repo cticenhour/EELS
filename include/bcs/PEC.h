@@ -24,6 +24,8 @@ private:
   const VariableValue & _field_2;
 
   Real _dir;
+
+  Real _penalty;
 };
 
 #endif // PEC_H
