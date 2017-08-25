@@ -29,18 +29,18 @@ Real
 PEC::computeQpResidual()
 {
 
-  _penalty = 1000000;
+  _penalty = 0.005; //std::pow(10,3);
 
-  if (_normals[_qp](2) != 0)
+  if (_dir == 0 )
   {
-    return _penalty * (_normals[_qp](2) * _u[_qp] - _normals[_qp](_dir) * _field_2[_qp]);
+    return -_penalty * _test[_i][_qp] * (_normals[_qp](1) * _u[_qp] - _normals[_qp](0) * _field_1[_qp]);
   }
-  else if (_normals[_qp](1) != 0)
+  else if (_dir == 1)
   {
-    return _penalty * (_normals[_qp](1) * _u[_qp] - _normals[_qp](_dir) * _field_1[_qp]);
+    return -_penalty * _test[_i][_qp] * (_normals[_qp](2) * _u[_qp] - _normals[_qp](1) * _field_2[_qp]);
   }
   else
   {
-    return _penalty * (_normals[_qp](0) * _u[_qp] - _normals[_qp](_dir) * _field_0[_qp]);
+    return -_penalty * _test[_i][_qp] * (_normals[_qp](0) * _u[_qp] - _normals[_qp](2) * _field_0[_qp]);
   }
 }

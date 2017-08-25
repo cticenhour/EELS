@@ -486,18 +486,20 @@ beta = 0.2282
   [../]
 []
 
-#[Preconditioning]
-#  [./SMP]
-#    type = SMP
-#    full = true
-#  [../]
-#[]
+[Preconditioning]
+  [./FDP]
+    type = FDP
+    pc_side = 'left'
+    full = true
+    ksp_norm = preconditioned
+  [../]
+[]
 
 [Executioner]
   type = Steady
   solve_type =  'PJFNK'
-  petsc_options_iname = '-pc_type'
-  petsc_options_value = 'lu'
+  petsc_options_iname = '-pc_type -pc_factor_shift_type'
+  petsc_options_value = 'lu NONZERO'
   nl_rel_tol = 1e-7
   nl_max_its = 400
 []
