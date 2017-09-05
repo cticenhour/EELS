@@ -514,4 +514,8 @@ beta = 0.2282
   [./out]
     type = Exodus
   [../]
+  [./out_linear]
+    type = Exodus
+    execute_on = 'linear'
+  [../]
 []
