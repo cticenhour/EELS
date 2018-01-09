@@ -192,7 +192,7 @@ beta = 0.2282
     boundary = port
     variable = Re_E_x
     num_type = real
-    k = ${k_z};
+    k = ${k_z}
     coupled_var = Im_E_x
     incoming_wave_fxn = E_inc_imag_x
   [../]
@@ -250,7 +250,7 @@ beta = 0.2282
     boundary = port
     variable = Re_E_y
     num_type = real
-    k = ${k_z};
+    k = ${k_z}
     coupled_var = Im_E_y
     incoming_wave_fxn = E_inc_imag_y
   [../]
@@ -338,7 +338,7 @@ beta = 0.2282
     boundary = port
     variable = Re_E_z
     num_type = real
-    k = ${k_z};
+    k = ${k_z}
     coupled_var = Im_E_z
     incoming_wave_fxn = E_inc_imag_z
   [../]
