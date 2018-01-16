@@ -18,6 +18,7 @@
 #include "PortBC.h"
 #include "PEC.h"
 #include "NORMALTEST.h"
+#include "PEC2.h"
 
 template <> InputParameters validParams<EelsApp>() {
   InputParameters params = validParams<MooseApp>();
@@ -59,6 +60,7 @@ void EelsApp::registerObjects(Factory &factory) {
   registerBoundaryCondition(AbsorbingBC);
   registerBoundaryCondition(PEC);
   registerBoundaryCondition(NORMALTEST);
+  registerBoundaryCondition(PEC2);
 }
 
 // External entry point for dynamic syntax association
