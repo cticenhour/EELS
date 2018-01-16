@@ -1,4 +1,5 @@
 #include "PEC.h"
+#include <iostream>
 
 template <>
 InputParameters
@@ -29,11 +30,13 @@ Real
 PEC::computeQpResidual()
 {
 
-  _penalty = 0.005; //std::pow(10,3);
+  _penalty = 1; //std::pow(10,3);
 
   if (_dir == 0 )
   {
     return -_penalty * _test[_i][_qp] * (_normals[_qp](1) * _u[_qp] - _normals[_qp](0) * _field_1[_qp]);
+
+    //std::cout << _normals[_qp](0) << "   " << _q_point[_qp](0) << " " << _q_point[_qp](1) << " " << _q_point[_qp](2) << std::endl;
   }
   else if (_dir == 1)
   {
