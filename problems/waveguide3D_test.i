@@ -162,7 +162,6 @@ beta = 0.2282
   [./PEC_real_x_left]
     type = PEC2
     variable = Re_E_x
-    direction = 0
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
@@ -171,7 +170,6 @@ beta = 0.2282
   [./PEC_real_x_right]
     type = PEC2
     variable = Re_E_x
-    direction = 0
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
@@ -180,7 +178,6 @@ beta = 0.2282
   [./PEC_real_x_top]
     type = PEC2
     variable = Re_E_x
-    direction = 0
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
@@ -189,7 +186,6 @@ beta = 0.2282
   [./PEC_real_x_bottom]
     type = PEC2
     variable = Re_E_x
-    direction = 0
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
@@ -215,7 +211,6 @@ beta = 0.2282
   [./PEC_imag_x_left]
     type = PEC2
     variable = Im_E_x
-    direction = 0
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
@@ -224,7 +219,6 @@ beta = 0.2282
   [./PEC_imag_x_right]
     type = PEC2
     variable = Im_E_x
-    direction = 0
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
@@ -233,7 +227,6 @@ beta = 0.2282
   [./PEC_imag_x_top]
     type = PEC2
     variable = Im_E_x
-    direction = 0
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
@@ -242,7 +235,6 @@ beta = 0.2282
   [./PEC_imag_x_bottom]
     type = PEC2
     variable = Im_E_x
-    direction = 0
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
@@ -268,7 +260,6 @@ beta = 0.2282
   [./PEC_real_y_left]
     type = PEC2
     variable = Re_E_y
-    direction = 1
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
@@ -277,7 +268,6 @@ beta = 0.2282
   [./PEC_real_y_right]
     type = PEC2
     variable = Re_E_y
-    direction = 1
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
@@ -286,7 +276,6 @@ beta = 0.2282
   [./PEC_real_y_top]
     type = PEC2
     variable = Re_E_y
-    direction = 1
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
@@ -295,7 +284,6 @@ beta = 0.2282
   [./PEC_real_y_bottom]
     type = PEC2
     variable = Re_E_y
-    direction = 1
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
@@ -321,7 +309,6 @@ beta = 0.2282
   [./PEC_imag_y_left]
     type = PEC2
     variable = Im_E_y
-    direction = 1
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
@@ -330,7 +317,6 @@ beta = 0.2282
   [./PEC_imag_y_right]
     type = PEC2
     variable = Im_E_y
-    direction = 1
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
@@ -339,7 +325,6 @@ beta = 0.2282
   [./PEC_imag_y_top]
     type = PEC2
     variable = Im_E_y
-    direction = 1
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
@@ -348,7 +333,6 @@ beta = 0.2282
   [./PEC_imag_y_bottom]
     type = PEC2
     variable = Im_E_y
-    direction = 1
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
@@ -374,7 +358,6 @@ beta = 0.2282
   [./PEC_real_z_left]
     type = PEC2
     variable = Re_E_z
-    direction = 2
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
@@ -383,7 +366,6 @@ beta = 0.2282
   [./PEC_real_z_right]
     type = PEC2
     variable = Re_E_z
-    direction = 2
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
@@ -392,7 +374,6 @@ beta = 0.2282
   [./PEC_real_z_top]
     type = PEC2
     variable = Re_E_z
-    direction = 2
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
@@ -401,7 +382,6 @@ beta = 0.2282
   [./PEC_real_z_bottom]
     type = PEC2
     variable = Re_E_z
-    direction = 2
     Field_0 = Re_E_x
     Field_1 = Re_E_y
     Field_2 = Re_E_z
@@ -427,7 +407,6 @@ beta = 0.2282
   [./PEC_imag_z_left]
     type = PEC2
     variable = Im_E_z
-    direction = 2
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
@@ -436,7 +415,6 @@ beta = 0.2282
   [./PEC_imag_z_right]
     type = PEC2
     variable = Im_E_z
-    direction = 2
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
@@ -445,7 +423,6 @@ beta = 0.2282
   [./PEC_imag_z_top]
     type = PEC2
     variable = Im_E_z
-    direction = 2
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z
@@ -454,7 +431,6 @@ beta = 0.2282
   [./PEC_imag_z_bottom]
     type = PEC2
     variable = Im_E_z
-    direction = 2
     Field_0 = Im_E_x
     Field_1 = Im_E_y
     Field_2 = Im_E_z

@@ -25,8 +25,6 @@ private:
   const VariableValue & _field_1;
 
   const VariableValue & _field_2;
-
-  Real _dir;
 };
 
 #endif // PEC2_H
