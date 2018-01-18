@@ -159,6 +159,38 @@ beta = 0.2282
     num_type = real
     coupled_var = Im_E_x
   [../]
+  [./Gauss_real_x_left]
+    type = GaussBC
+    variable = Re_E_x
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'left'
+  [../]
+  [./Gauss_real_x_right]
+    type = GaussBC
+    variable = Re_E_x
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'right'
+  [../]
+  [./Gauss_real_x_top]
+    type = GaussBC
+    variable = Re_E_x
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'top'
+  [../]
+  [./Gauss_real_x_bottom]
+    type = GaussBC
+    variable = Re_E_x
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'bottom'
+  [../]
   [./PEC_real_x_left]
     type = PEC2
     variable = Re_E_x
@@ -207,6 +239,38 @@ beta = 0.2282
     k = ${k_z}
     num_type = imaginary
     coupled_var = Re_E_x
+  [../]
+  [./Gauss_imag_x_left]
+    type = GaussBC
+    variable = Im_E_x
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'left'
+  [../]
+  [./Gauss_imag_x_right]
+    type = GaussBC
+    variable = Im_E_x
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'right'
+  [../]
+  [./Gauss_imag_x_top]
+    type = GaussBC
+    variable = Im_E_x
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'top'
+  [../]
+  [./Gauss_imag_x_bottom]
+    type = GaussBC
+    variable = Im_E_x
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'bottom'
   [../]
   [./PEC_imag_x_left]
     type = PEC2
@@ -257,6 +321,38 @@ beta = 0.2282
     num_type = real
     coupled_var = Im_E_y
   [../]
+  [./Gauss_real_y_left]
+    type = GaussBC
+    variable = Re_E_y
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'left'
+  [../]
+  [./Gauss_real_y_right]
+    type = GaussBC
+    variable = Re_E_y
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'right'
+  [../]
+  [./Gauss_real_y_top]
+    type = GaussBC
+    variable = Re_E_y
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'top'
+  [../]
+  [./Gauss_real_y_bottom]
+    type = GaussBC
+    variable = Re_E_y
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'bottom'
+  [../]
   [./PEC_real_y_left]
     type = PEC2
     variable = Re_E_y
@@ -305,6 +401,38 @@ beta = 0.2282
     k = ${k_z}
     num_type = imaginary
     coupled_var = Re_E_y
+  [../]
+  [./Gauss_imag_y_left]
+    type = GaussBC
+    variable = Im_E_y
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'left'
+  [../]
+  [./Gauss_imag_y_right]
+    type = GaussBC
+    variable = Im_E_y
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'right'
+  [../]
+  [./Gauss_imag_y_top]
+    type = GaussBC
+    variable = Im_E_y
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'top'
+  [../]
+  [./Gauss_imag_y_bottom]
+    type = GaussBC
+    variable = Im_E_y
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'bottom'
   [../]
   [./PEC_imag_y_left]
     type = PEC2
@@ -355,6 +483,38 @@ beta = 0.2282
     num_type = real
     coupled_var = Im_E_z
   [../]
+  [./Gauss_real_z_left]
+    type = GaussBC
+    variable = Re_E_z
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'left'
+  [../]
+  [./Gauss_real_z_right]
+    type = GaussBC
+    variable = Re_E_z
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'right'
+  [../]
+  [./Gauss_real_z_top]
+    type = GaussBC
+    variable = Re_E_z
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'top'
+  [../]
+  [./Gauss_real_z_bottom]
+    type = GaussBC
+    variable = Re_E_z
+    Field_0 = Re_E_x
+    Field_1 = Re_E_y
+    Field_2 = Re_E_z
+    boundary = 'bottom'
+  [../]
   [./PEC_real_z_left]
     type = PEC2
     variable = Re_E_z
@@ -403,6 +563,38 @@ beta = 0.2282
     k = ${k_z}
     num_type = imaginary
     coupled_var = Re_E_z
+  [../]
+  [./Gauss_imag_z_left]
+    type = GaussBC
+    variable = Im_E_z
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'left'
+  [../]
+  [./Gauss_imag_z_right]
+    type = GaussBC
+    variable = Im_E_z
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'right'
+  [../]
+  [./Gauss_imag_z_top]
+    type = GaussBC
+    variable = Im_E_z
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'top'
+  [../]
+  [./Gauss_imag_z_bottom]
+    type = GaussBC
+    variable = Im_E_z
+    Field_0 = Im_E_x
+    Field_1 = Im_E_y
+    Field_2 = Im_E_z
+    boundary = 'bottom'
   [../]
   [./PEC_imag_z_left]
     type = PEC2
