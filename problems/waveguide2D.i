@@ -95,7 +95,7 @@ k_y = 0.3142
     boundary = port
     variable = Re_E_z
     num_type = real
-    k = ${k_x};
+    k = ${k_x}
     coupled_var = Im_E_z
     incoming_wave_fxn = E_inc_imag
   [../]
